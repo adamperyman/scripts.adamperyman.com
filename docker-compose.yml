@@ -1,0 +1,28 @@
+version: "3.4"
+services:
+  db.adamperyman.com:
+    container_name: db.adamperyman.com
+    image: adamperyman/db.adamperyman.com:latest
+    networks:
+      - adamperyman.com
+    ports:
+      - "27017:27017"
+    volumes:
+      - /data/adamperyman:/data/db
+    env_file:
+      - .env
+    environment:
+      - AUTH=yes
+  api.adamperyman.com:
+    container_name: api.adamperyman.com
+    image: adamperyman/api.adamperyman.com:latest
+    networks:
+      - adamperyman.com
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 4000:4000
+networks:
+  adamperyman.com:
+    driver: bridge
