@@ -6,7 +6,7 @@ services:
     networks:
       - adamperyman.com
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
       - /data/adamperyman:/data/db
     env_file:
