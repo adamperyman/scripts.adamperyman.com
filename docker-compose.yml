@@ -23,6 +23,16 @@ services:
       - .env
     ports:
       - 4000:4000
+  adamperyman.com:
+    container_name: adamperyman.com
+    image: adamperyman/adamperyman.com:latest
+    networks:
+      - adamperyman.com
+    build: .
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
 networks:
   adamperyman.com:
     driver: bridge
