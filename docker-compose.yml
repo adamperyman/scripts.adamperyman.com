@@ -1,18 +1,18 @@
-version: "3.4"
+version: "3.5"
 services:
   db.adamperyman.com:
     container_name: db.adamperyman.com
-    image: adamperyman/db.adamperyman.com:latest
+    image: adamperyman/happy-mongodb:latest
     networks:
       - adamperyman.com
     ports:
       - 27017:27017
-    volumes:
-      - /data/adamperyman:/data/db
     env_file:
       - .env
     environment:
       - AUTH=yes
+    volumes:
+      - /data/adamperyman:/data/db
   api.adamperyman.com:
     container_name: api.adamperyman.com
     image: adamperyman/api.adamperyman.com:latest
